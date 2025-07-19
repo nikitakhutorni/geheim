@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16-alpine:///testdb
+    username: geheim
+    password: geheim
+
+logging:
+  level:
+    root: WARN
+    sh.nkt.geheim: INFO

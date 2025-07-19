@@ -35,16 +35,8 @@ up-db:
 
 ## dev: Run the dev server
 dev: up-db
-	@SPRING_PROFILES_ACTIVE=dev \
-	SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/geheim \
-	SPRING_DATASOURCE_USERNAME=geheim \
-	SPRING_DATASOURCE_PASSWORD=geheim \
-	./mvnw spring-boot:run
+	SPRING_PROFILES_ACTIVE=dev ./mvnw spring-boot:run
 
-## integration: Run integration tests
-integration:
-	@SPRING_PROFILES_ACTIVE=test \
-	SPRING_DATASOURCE_URL=jdbc:tc:postgresql:16-alpine:///testdb \
-	SPRING_DATASOURCE_USERNAME=geheim_test \
-	SPRING_DATASOURCE_PASSWORD=geheim_test \
-	./mvnw verify
+## test: Run unit and slice tests
+test:
+	SPRING_PROFILES_ACTIVE=test ./mvnw verify

@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/geheim
+    username: geheim
+    password: geheim
+
+logging:
+  level:
+    root: INFO
+    sh.nkt.geheim: DEBUG
+    org.springframework: WARN
+    org.testcontainers: WARN

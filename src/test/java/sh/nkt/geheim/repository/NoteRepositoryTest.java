@@ -12,7 +12,7 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJdbcTest
-public class NoteRepositoryIT {
+public class NoteRepositoryTest {
 
     static PostgreSQLContainer<?> pg = new PostgreSQLContainer<>("postgres:16-alpine")
             .withDatabaseName("test")
