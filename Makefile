@@ -40,3 +40,11 @@ dev: up-db
 	SPRING_DATASOURCE_USERNAME=geheim \
 	SPRING_DATASOURCE_PASSWORD=geheim \
 	./mvnw spring-boot:run
+
+## integration: Run integration tests
+integration:
+	@SPRING_PROFILES_ACTIVE=test \
+	SPRING_DATASOURCE_URL=jdbc:tc:postgresql:16-alpine:///testdb \
+	SPRING_DATASOURCE_USERNAME=geheim_test \
+	SPRING_DATASOURCE_PASSWORD=geheim_test \
+	./mvnw verify

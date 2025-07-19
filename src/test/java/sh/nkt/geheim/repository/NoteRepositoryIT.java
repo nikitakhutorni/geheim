@@ -19,24 +19,22 @@ public class NoteRepositoryIT {
             .withUsername("test")
             .withPassword("test");
 
-
     @Autowired
     NoteRepository repo;
 
     @Test
     void consumeIsAtomic() {
-        // TODO: this test is erroring
         Note initial = new NoteBuilder().build();
         initial = repo.save(initial);
         UUID id = initial.id();
 
         // consume first time should work
-        var consumedOnce = repo.consume(id);
-        assertThat(consumedOnce).isPresent();
-        assertThat(consumedOnce.get().remainingReads()).isEqualTo(1);
+        var consumed = repo.consume(id);
+        assertThat(consumed).isPresent();
+        assertThat(consumed.get().remainingReads()).isEqualTo(0);
 
         // consume second time should NOT work
-        var consumedTwice = repo.consume(id);
-        assertThat(consumedTwice).isEmpty();
+        var consumedAgain = repo.consume(id);
+        assertThat(consumedAgain).isEmpty();
     }
 }

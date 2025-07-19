@@ -9,17 +9,13 @@ import java.util.UUID;
  * Builder for creating {@link Note} instances with default values.
  */
 public class NoteBuilder {
-    private UUID id = UUID.randomUUID();
+    private UUID id;
     private byte[] cipherText = "dummy".getBytes();
     private byte[] iv = new byte[12];
     private byte[] salt = new byte[16];
     private Instant expiresAt = Instant.now().plusSeconds(3_600);
     private int remainingReads = 1;
     private Instant createdAt = Instant.now();
-
-    public NoteBuilder id(UUID id) {
-        this.id = id; return this;
-    }
 
     public NoteBuilder cipherText(byte[] c) {
         this.cipherText = c; return this;

@@ -1,5 +1,5 @@
 create table notes (
-    id uuid primary key,
+    id uuid primary key default gen_random_uuid(),
     ciphertext bytea not null,
     iv bytea not null,
     salt bytea not null,
