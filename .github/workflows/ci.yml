@@ -24,4 +24,4 @@ jobs:
           cache: maven
 
       - name: Build and test
-        run: make test
+        run: make verify

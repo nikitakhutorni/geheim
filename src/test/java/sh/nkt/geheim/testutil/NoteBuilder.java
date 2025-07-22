@@ -10,15 +10,19 @@ import java.util.UUID;
  */
 public class NoteBuilder {
     private UUID id;
-    private byte[] cipherText = "dummy".getBytes();
-    private byte[] iv = new byte[12];
-    private byte[] salt = new byte[16];
+    private byte[] ciphertext = "ciphertext".getBytes();
+    private byte[] iv = "12-byte---iv".getBytes();
+    private byte[] salt = "16-byte-len-salt".getBytes();
     private Instant expiresAt = Instant.now().plusSeconds(3_600);
     private int remainingReads = 1;
     private Instant createdAt = Instant.now();
 
-    public NoteBuilder cipherText(byte[] c) {
-        this.cipherText = c; return this;
+    public NoteBuilder id(UUID id) {
+        this.id = id; return this;
+    }
+
+    public NoteBuilder ciphertext(byte[] c) {
+        this.ciphertext = c; return this;
     }
 
     public NoteBuilder iv(byte[] iv) {
@@ -42,13 +46,13 @@ public class NoteBuilder {
     }
 
     public NoteBuilder expired() {
-        this.expiresAt = Instant.now().minusSeconds(1); return this;
+        this.expiresAt = Instant.now().minusSeconds(30); return this;
     }
 
     public Note build() {
         return new Note(
             id,
-            cipherText,
+            ciphertext,
             iv,
             salt,
             expiresAt,

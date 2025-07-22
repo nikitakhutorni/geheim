@@ -39,4 +39,8 @@ dev: up-db
 
 ## test: Run unit and slice tests
 test:
+	SPRING_PROFILES_ACTIVE=test ./mvnw test
+
+## verify: Run all tests and check code quality
+verify:
 	SPRING_PROFILES_ACTIVE=test ./mvnw verify
