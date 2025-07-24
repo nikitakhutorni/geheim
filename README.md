@@ -30,5 +30,10 @@ make up-db
 ### Run tests
 To run all tests, including unit and integration tests, use:
 ```bash
+make verify
+```
+
+TO run only unit tests, use:
+```bash
 make test
 ```

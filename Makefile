@@ -7,7 +7,7 @@ SHELL := /usr/bin/env bash
 .SHELLFLAGS := -e -u -o pipefail -c
 
 # add all phony targets here
-.PHONY: help init
+.PHONY: help up-db dev test verify
 
 ## help: Show this help message
 help:

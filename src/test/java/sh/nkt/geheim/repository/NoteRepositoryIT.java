@@ -51,8 +51,9 @@ public class NoteRepositoryIT {
         UUID expiredId = repo.save(expired).id();
         UUID futureId = repo.save(future).id();
 
-        repo.deleteByExpiresAtBefore(now);
+        int deletedCount = repo.deleteByExpiresAtBefore(now);
 
+        assertThat(deletedCount).isEqualTo(1);
         assertThat(repo.findById(expiredId)).isEmpty();
         assertThat(repo.findById(futureId)).isPresent();
     }

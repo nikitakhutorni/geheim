@@ -39,5 +39,5 @@ public interface NoteRepository extends CrudRepository<Note, UUID> {
      *
      * @param timestamp any note with {@code expires_at < timestamp} will be removed
      */
-    void deleteByExpiresAtBefore(Instant timestamp);
+    int deleteByExpiresAtBefore(Instant timestamp);
 }
